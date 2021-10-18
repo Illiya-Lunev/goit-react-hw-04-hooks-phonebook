@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import s from './formPhone.module.css';
 
+// Пропсы передаем в функцию как параметры
 export default function FormPhoneBook({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -11,6 +12,7 @@ export default function FormPhoneBook({ onSubmit }) {
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
+    // Делаем свич
     switch (name) {
       case 'name':
         setName(value);
@@ -25,8 +27,9 @@ export default function FormPhoneBook({ onSubmit }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-
+// Вызываем пропс , передаем параметры
     onSubmit(name, number);
+    // очистка вместо ресета
     setName('');
     setNumber('');
   };
