@@ -6,22 +6,6 @@ import Filter from './componets/Filters/Filters.jsx';
 import s from './componets/FormPhoneBook/formPhone.module.css';
 
 
-
-// getVisibleContacts = () => {
-//   const { filter, contacts } = this.state;
-//   const normalizedFilter = filter.toLowerCase();
-//   return contacts.filter(contact =>
-//     contact.name.toLowerCase().includes(normalizedFilter),
-//   );
-// };
-
-
-// handleContactsFilter = e => {
-//   this.setState({ filter: e.currentTarget.value });
-// };
-
-//  
-
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
@@ -32,6 +16,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    // Записываем в Локал сторедж
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
